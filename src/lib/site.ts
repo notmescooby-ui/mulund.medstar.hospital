@@ -5,7 +5,7 @@ export const SITE = {
   phone: "099200 14466",
   phoneLink: "tel:+919920014466",
   whatsapp: "https://wa.me/919920014466",
-  email: "mulundmedstar@gmail.com",
+  email: "contactmulundmedstar@gmail.com",
   address:
     "Medstar Multispeciality Hospital and ICU, Dindayal Upadhyay Marg, Mulund West, Mumbai, Maharashtra 400080",
   shortAddress: "Mulund West, Mumbai",
