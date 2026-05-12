@@ -1,7 +1,8 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, Stethoscope } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
+import medstarLogo from "@/assets/Green Minimalistic Gift Circle Sticker - 1.png";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -27,32 +28,40 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-2" : "py-4"
+      className={`fixed top-0 inset-x-0 z-50 bg-sky-50/90 backdrop-blur-xl border-b border-sky-100/70 transition-all duration-500 ${
+        scrolled ? "py-2 shadow-soft" : "py-4"
       }`}
     >
-      <div className="container-px mx-auto max-w-7xl">
-        <div className={`glass rounded-2xl shadow-soft transition-all duration-500 ${scrolled ? "px-4 py-2" : "px-5 py-3"}`}>
-          <div className="flex items-center justify-between gap-4">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <span className="grid place-items-center size-10 rounded-xl bg-primary-gradient text-primary-foreground shadow-glow transition-transform group-hover:rotate-6">
-                <Stethoscope className="size-5" />
+      <div className="container-px mx-auto max-w-[95rem]">
+        <div className={`rounded-2xl bg-white/80 border border-sky-100/65 backdrop-blur-xl shadow-soft transition-all duration-500 ${scrolled ? "px-4 py-2" : "px-5 py-3"}`}>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <Link to="/" className="flex shrink-0 items-center gap-3 group min-w-0" aria-label="Medstar Multispeciality Hospital and ICU home">
+              <span className="grid place-items-center h-14 w-14 rounded-full bg-sky-100 shadow-elegant ring-2 ring-sky-200/60 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                <img
+                  src={medstarLogo}
+                  alt="Medstar Hospital logo"
+                  className="h-full w-full object-cover"
+                />
               </span>
-              <span className="flex flex-col leading-tight">
-                <span className="font-display font-bold text-base sm:text-lg text-foreground">Medstar</span>
-                <span className="text-[10px] sm:text-[11px] text-muted-foreground -mt-0.5">A Star in Health Care</span>
+              <span className="flex flex-col gap-2 leading-tight min-w-0 max-w-[22rem] whitespace-normal">
+                <span className="font-display font-bold text-[11px] sm:text-[12px] lg:text-[13px] uppercase tracking-[0.18em] text-slate-950 leading-tight">
+                  Medstar Multispeciality Hospital and ICU
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-slate-600 mt-1">A Star in Health Care</span>
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-3 min-w-0">
               {NAV.map((n) => {
                 const active = n.to === "/" ? loc.pathname === "/" : loc.pathname.startsWith(n.to);
                 return (
                   <Link
                     key={n.to}
                     to={n.to}
-                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                      active ? "text-primary" : "text-foreground/75 hover:text-primary"
+                    className={`relative px-4 py-2 text-sm font-medium rounded-2xl transition-all duration-200 ${
+                      active
+                        ? "text-primary bg-sky-100/80"
+                        : "text-slate-700 hover:text-primary hover:bg-sky-100/80"
                     }`}
                   >
                     {n.label}
@@ -64,23 +73,23 @@ export function Header() {
               })}
             </nav>
 
-            <div className="flex items-center gap-2">
+            <div className="flex shrink-0 items-center gap-2">
               <a
                 href={SITE.phoneLink}
-                className="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-primary hover:bg-accent transition"
+                className="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-2xl text-xs font-semibold text-slate-700 hover:text-primary hover:bg-sky-100/80 transition-all duration-200"
               >
                 <Phone className="size-4" /> {SITE.phone}
               </a>
               <Link
                 to="/contact"
-                className="hidden md:inline-flex items-center gap-2 bg-primary-gradient text-primary-foreground px-4 py-2.5 rounded-xl text-sm font-semibold shadow-soft hover:shadow-glow transition-all hover:-translate-y-0.5"
+                className="hidden md:inline-flex items-center gap-2 bg-primary-gradient text-primary-foreground px-4 py-2.5 rounded-2xl text-sm font-semibold shadow-soft hover:shadow-glow transition-all duration-200 hover:-translate-y-0.5"
               >
                 Book Appointment
               </Link>
               <button
                 aria-label="Toggle menu"
                 onClick={() => setOpen((v) => !v)}
-                className="lg:hidden grid place-items-center size-10 rounded-lg text-foreground hover:bg-accent transition"
+                className="lg:hidden grid place-items-center size-10 rounded-2xl text-foreground hover:bg-sky-100 transition-all duration-200"
               >
                 {open ? <X className="size-5" /> : <Menu className="size-5" />}
               </button>

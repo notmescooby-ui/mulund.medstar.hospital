@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, ShieldCheck, Clock, Award, HeartHandshake, Sparkles,
-  Siren, Quote, Star, ChevronRight,
+  Siren, Star, ChevronRight,
 } from "lucide-react";
-import heroImg from "@/assets/hero-hospital.jpg";
+import heroImg from "@/assets/WhatsApp Image 2026-05-12 at 6.50.14 AM.jpeg";
 import icuImg from "@/assets/icu-facility.jpg";
-import doctorImg from "@/assets/about-doctor.jpg";
+import doctorImg from "@/assets/reception.jpg";
+import founderImg from "@/assets/WhatsApp Image 2025-01-06 at 20.30.09_0aea704c.jpg";
 import { DEPARTMENTS, SITE, STATS } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
@@ -21,13 +22,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const TESTIMONIALS = [
-  { name: "Priya S.", text: "The doctors and ICU team were exceptional during my father's recovery. Calm, kind and incredibly skilled.", role: "Patient family" },
-  { name: "Rahul M.", text: "From admission to discharge, every step felt organised and reassuring. Truly patient-first care.", role: "Orthopaedic patient" },
-  { name: "Anjali K.", text: "Modern facilities and warm staff. The pediatric team made my daughter feel completely at ease.", role: "Pediatric care" },
-  { name: "Mr. Gupta", text: "24×7 emergency response saved precious minutes. Forever grateful to Medstar.", role: "Emergency patient" },
-];
-
 function HomePage() {
   return (
     <div className="overflow-x-hidden">
@@ -37,6 +31,9 @@ function HomePage() {
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="relative container-px mx-auto max-w-7xl pt-10 pb-20 lg:pt-20 lg:pb-32 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-7 animate-fade-up">
+            <div className="text-[11px] sm:text-[12px] font-semibold tracking-[0.24em] uppercase text-slate-950/90">
+              Medstar Multispeciality Hospital and ICU
+            </div>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-semibold text-primary shadow-card">
               <Sparkles className="size-3.5" /> {SITE.tagline}
             </span>
@@ -55,10 +52,16 @@ function HomePage() {
                 Explore Services <ChevronRight className="size-4" />
               </Link>
             </div>
-            <div className="flex flex-wrap gap-5 pt-4 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Cashless insurance</span>
-              <span className="inline-flex items-center gap-2"><Clock className="size-4 text-primary" /> 24×7 ICU & Emergency</span>
-              <span className="inline-flex items-center gap-2"><Award className="size-4 text-primary" /> 16 specialities</span>
+            <div className="flex flex-wrap gap-3 pt-4">
+              <span className="inline-flex items-center gap-2 rounded-2xl bg-sky-50/90 px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft">
+                <ShieldCheck className="size-5 text-primary" /> Cashless insurance
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-2xl bg-sky-50/90 px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft">
+                <Clock className="size-5 text-primary" /> 24×7 ICU & Emergency
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-2xl bg-white/90 px-4 py-2 text-sm font-semibold text-slate-700 shadow-card">
+                <Award className="size-5 text-primary" /> 17 specialities
+              </span>
             </div>
           </div>
           <div className="lg:col-span-6 relative animate-scale-in">
@@ -75,11 +78,11 @@ function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="absolute -right-2 sm:-right-6 top-8 glass rounded-2xl p-4 shadow-elegant w-52" style={{ animation: "float 7s ease-in-out infinite", animationDelay: "1s" }}>
+            <div className="absolute -right-2 sm:-right-6 bottom-16 glass rounded-2xl p-4 shadow-elegant w-52" style={{ animation: "float 7s ease-in-out infinite", animationDelay: "1s" }}>
               <div className="flex items-center gap-2 mb-1">
                 {[1,2,3,4,5].map(i => <Star key={i} className="size-3.5 fill-coral text-coral" style={{ color: "oklch(0.74 0.14 30)" }} />)}
               </div>
-              <div className="text-xs font-semibold">Trusted by 25,000+ patients</div>
+              <div className="text-xs font-semibold">Treated by 1,000+ patients</div>
             </div>
           </div>
         </div>
@@ -93,8 +96,8 @@ function HomePage() {
               <img src={doctorImg} alt="Compassionate Medstar doctor" loading="lazy" className="w-full h-[520px] object-cover" width={1200} height={1400} />
             </div>
             <div className="absolute -bottom-6 -right-4 glass rounded-2xl p-5 shadow-elegant w-60 hidden sm:block">
-              <div className="text-3xl font-bold gradient-text">12+</div>
-              <div className="text-xs text-muted-foreground mt-1">Years of trusted multispeciality care in Mumbai</div>
+              <div className="text-3xl font-bold gradient-text">Trusted with patient care for years</div>
+              <div className="text-xs text-muted-foreground mt-1">By the people of Mulund</div>
             </div>
           </Reveal>
           <Reveal delay={120} className="lg:col-span-7 space-y-6">
@@ -202,25 +205,43 @@ function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* FOUNDER'S NOTE */}
       <section className="container-px mx-auto max-w-7xl py-20 lg:py-28">
-        <Reveal className="text-center max-w-2xl mx-auto mb-14 space-y-4">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">Patient Stories</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">Words from our <span className="gradient-text">Medstar family</span>.</h2>
-        </Reveal>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 100}>
-              <div className="h-full rounded-2xl border bg-card p-6 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all">
-                <Quote className="size-6 text-primary/50 mb-3" />
-                <p className="text-sm leading-relaxed text-foreground/85">{t.text}</p>
-                <div className="mt-5 pt-4 border-t">
-                  <div className="font-semibold text-sm">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
-                </div>
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+          <Reveal className="order-2 lg:order-1 space-y-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 text-xs font-semibold text-sky-800 shadow-soft">
+              Founder’s Note
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-950">
+              A warm message from our founder, Dr. Shailendra Nanaware.
+            </h2>
+            <div className="space-y-5 text-sm sm:text-base leading-relaxed text-slate-700">
+              <p>At Medstar Multispeciality Hospital and ICU, our vision has always been to create a healthcare environment where compassion meets excellence. We believe that every patient deserves not only advanced medical treatment, but also warmth, dignity, trust, and personal attention during every step of their healthcare journey. From emergency and critical care services to multispeciality consultations and modern treatment facilities, our mission is to provide accessible, reliable, and patient-focused healthcare for the community of Mulund and beyond.</p>
+              <p>Our team of dedicated doctors, specialists, nurses, and healthcare professionals work together with one shared commitment — to place patients and their families at the heart of everything we do. We continuously strive to combine modern medical technology with ethical healthcare practices and compassionate care to ensure the best possible outcomes for every individual who walks through our doors.</p>
+              <p>We sincerely thank our patients and the community for their trust and support, and we remain committed to building a healthier future together.</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120} className="order-1 lg:order-2">
+            <div className="rounded-[2rem] overflow-hidden border border-slate-200/80 bg-white shadow-elegant transition-all hover:-translate-y-0.5">
+              <div className="relative overflow-hidden">
+                <img
+                  src={founderImg}
+                  alt="Dr. Shailendra Nanaware"
+                  loading="lazy"
+                  className="w-full h-[320px] sm:h-[420px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent" />
               </div>
-            </Reveal>
-          ))}
+              <div className="p-6 sm:p-8 bg-gradient-to-br from-sky-50 via-slate-100 to-white border-t border-sky-100 shadow-soft">
+                <div className="text-lg font-semibold text-slate-950">Dr. Shailendra Nanaware</div>
+                <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-900 shadow-sm ring-1 ring-sky-200">
+                  Founder & Ophthalmologist
+                </div>
+                <div className="mt-3 text-sm text-slate-600">Medstar Multispeciality Hospital and ICU</div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

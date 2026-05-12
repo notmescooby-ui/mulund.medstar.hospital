@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, HeartHandshake, ShieldCheck, Sparkles, Stethoscope, Users } from "lucide-react";
-import doctorImg from "@/assets/about-doctor.jpg";
-import icuImg from "@/assets/icu-facility.jpg";
-import hospitalImg from "@/assets/about-hospital.png";
+import doctorImg from "@/assets/triple sharing .jpg";
+import icuImg from "@/assets/iccu 2.jpg";
+import hospitalImg from "@/assets/opd 1.jpg";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
@@ -53,20 +53,21 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Founder */}
+      {/* ICU Service */}
       <section className="container-px mx-auto max-w-7xl py-12 lg:py-20">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <Reveal className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden shadow-elegant">
-              <img src={icuImg} alt="Hospital infrastructure" loading="lazy" className="w-full h-[440px] object-cover" width={1600} height={1000} />
+              <img src={icuImg} alt="ICU service at Medstar" loading="lazy" className="w-full h-[440px] object-cover" width={1600} height={1000} />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
             </div>
           </Reveal>
           <Reveal delay={120} className="lg:col-span-7 space-y-5">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">Our Founder</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">Our ICU Service</span>
             <h2 className="text-3xl sm:text-4xl font-bold">Built by clinicians, for patients.</h2>
-            <p className="text-muted-foreground leading-relaxed">Founded by a team of experienced doctors who believed Mumbai's neighbourhoods deserved a modern, ethical and compassionate hospital — Medstar was born to bridge the gap between premium tertiary care and the warmth of a family clinic.</p>
-            <p className="text-muted-foreground leading-relaxed">Today the institution stands as a true multispeciality centre with critical care capability, supported by visiting consultants across 16 specialities and a deeply patient-first nursing team.</p>
+            <p className="text-muted-foreground leading-relaxed">Medstar Multispeciality Hospital and ICU offers advanced critical care services through its modern 10-bed Intensive Care Unit, designed to provide comprehensive treatment and continuous monitoring for critically ill patients. Equipped with advanced ventilator support systems, cardiac monitors, emergency response equipment, and modern ICU infrastructure, our facility ensures immediate and effective medical attention at all times.</p>
+            <p className="text-muted-foreground leading-relaxed">Our dedicated team of experienced critical care specialists, doctors, nurses, and support staff work round-the-clock to deliver compassionate, patient-focused care while maintaining the highest standards of safety, hygiene, and medical excellence. The ICU is designed to handle a wide range of emergency and critical medical conditions with rapid response and personalized treatment plans tailored to each patient’s needs.</p>
+            <p className="text-muted-foreground leading-relaxed">At Medstar, we understand that critical care is not only about advanced technology but also about emotional support, trust, and compassionate healthcare. Our ICU environment is maintained to provide comfort, cleanliness, and reassurance for both patients and their families during challenging times. With 24×7 emergency support, advanced monitoring systems, and a commitment to excellence, Medstar Multispeciality Hospital and ICU continues to provide reliable, life-saving critical care services for the Mulund community and beyond.</p>
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
               {[
                 { icon: Users, label: "Patient-first" },

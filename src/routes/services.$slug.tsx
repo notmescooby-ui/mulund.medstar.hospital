@@ -1,9 +1,26 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Phone, ChevronDown, Stethoscope } from "lucide-react";
+import { ArrowRight, CheckCircle2, Phone, ChevronDown, Stethoscope, UserRound } from "lucide-react";
 import { useState } from "react";
 import { DEPARTMENTS, SITE, type Department, type Doctor } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { DepartmentIcon } from "@/components/DepartmentIcon";
+import cardioBg from "@/assets/cardio-bg.png";
+import entBg from "@/assets/ent-bg.png";
+import eyeBg from "@/assets/eye-bg.png";
+import gastroBg from "@/assets/gastro-bg.png";
+import generalSurgeryBg from "@/assets/general-surgery-bg.png";
+import gynecBg from "@/assets/gynec-bg.png";
+import genMedBg from "@/assets/gen-med.png";
+import icuBg from "@/assets/icu-bg.png";
+import spineBg from "@/assets/spine-bg.png";
+import nephroBg from "@/assets/nephro.png";
+import neuroBg from "@/assets/neuro-bg.png";
+import neurologyBg from "@/assets/neurology-bg.png";
+import oncoBg from "@/assets/onco-bg.png";
+import orthoBg from "@/assets/ortho-bg.png";
+import pedBg from "@/assets/ped-bg.png";
+import plasticBg from "@/assets/plastic-bg.png";
+import urologyBg from "@/assets/urology-bg.png";
 
 export const Route = createFileRoute("/services/$slug")({
   head: ({ params }) => {
@@ -72,26 +89,40 @@ function DoctorCard({ doctor, index }: { doctor: Doctor; index: number }) {
   const initials = getInitials(doctor.name);
   return (
     <div
-      className="group relative rounded-2xl border bg-card shadow-card overflow-hidden
-                 hover:shadow-elegant hover:-translate-y-1 transition-all duration-300"
+      className="group relative rounded-2xl bg-card shadow-card overflow-hidden
+                 hover:shadow-elegant hover:-translate-y-1 transition-all duration-300
+                 border border-violet-200 hover:border-violet-400"
+      style={{ boxShadow: "0 0 0 1px rgba(139,92,246,0.15), 0 2px 8px rgba(139,92,246,0.08)" }}
     >
-      {/* top accent bar */}
-      <div className="absolute top-0 inset-x-0 h-0.5 bg-primary-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* top purple accent bar — always visible, brightens on hover */}
+      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-violet-400 via-purple-500 to-indigo-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300 rounded-t-2xl" />
 
-      <div className="p-6 flex flex-col items-center text-center gap-4">
-        {/* Avatar */}
-        <div
-          className={`relative grid place-items-center size-16 rounded-2xl bg-gradient-to-br ${gradient}
-                      text-white font-bold text-xl shadow-soft
-                      group-hover:scale-105 transition-transform duration-300`}
-        >
-          {initials}
-          {/* subtle pulse ring on hover */}
-          <span className="absolute inset-0 rounded-2xl ring-2 ring-primary/0 group-hover:ring-primary/30 transition-all duration-300" />
+      {/* subtle purple tint background on hover */}
+      <div className="absolute inset-0 bg-gradient-to-b from-violet-50/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+      <div className="relative p-6 flex flex-col items-center text-center gap-4">
+        {/* Avatar with stethoscope badge */}
+        <div className="relative">
+          <div
+            className={`grid place-items-center size-16 rounded-2xl bg-gradient-to-br ${gradient}
+                        text-white font-bold text-xl shadow-soft
+                        group-hover:scale-105 transition-transform duration-300`}
+          >
+            {initials}
+            <span className="absolute inset-0 rounded-2xl ring-2 ring-violet-400/0 group-hover:ring-violet-400/40 transition-all duration-300" />
+          </div>
+          {/* Stethoscope badge */}
+          <div
+            className="absolute -bottom-2 -right-2 grid place-items-center size-7 rounded-full
+                          bg-white border-2 border-violet-200 shadow-sm
+                          group-hover:border-violet-400 group-hover:bg-violet-50 transition-all duration-300"
+          >
+            <Stethoscope className="size-3.5 text-violet-500" />
+          </div>
         </div>
 
         {/* Name & role */}
-        <div>
+        <div className="mt-1">
           <p className="font-semibold text-base leading-snug">{doctor.name}</p>
           {doctor.role && (
             <p className="text-xs text-muted-foreground mt-1 font-medium">{doctor.role}</p>
@@ -101,14 +132,80 @@ function DoctorCard({ doctor, index }: { doctor: Doctor; index: number }) {
         {/* Book button */}
         <Link
           to="/contact"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary
-                     border border-primary/20 rounded-xl px-4 py-2
-                     hover:bg-primary hover:text-primary-foreground
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-violet-600
+                     border border-violet-200 rounded-xl px-4 py-2
+                     hover:bg-violet-600 hover:text-white hover:border-violet-600
                      transition-all duration-200 w-full justify-center"
         >
           Book Appointment <ArrowRight className="size-3" />
         </Link>
       </div>
+    </div>
+  );
+}
+
+function DepartmentHeroBackground({ dept }: { dept: Department }) {
+  const heroImage =
+    dept.slug === "cardiology"
+      ? cardioBg
+      : dept.slug === "orthopaedics"
+        ? orthoBg
+        : dept.slug === "oncology"
+          ? oncoBg
+          : dept.slug === "neurology"
+            ? neurologyBg
+            : dept.slug === "gastroenterology"
+              ? gastroBg
+              : dept.slug === "general-surgery"
+                ? generalSurgeryBg
+                : dept.slug === "plastic-surgery"
+                  ? plasticBg
+                  : dept.slug === "pediatrics"
+                    ? pedBg
+                    : dept.slug === "gynecology"
+                      ? gynecBg
+                      : dept.slug === "general-medicine"
+                        ? genMedBg
+                        : dept.slug === "nephrology"
+                          ? nephroBg
+                          : dept.slug === "neurosurgery"
+                            ? neuroBg
+                            : dept.slug === "spine-surgery"
+                              ? spineBg
+                              : dept.slug === "urology"
+                                ? urologyBg
+                                : dept.slug === "icu-emergency"
+                                  ? icuBg
+                                  : dept.slug === "ent"
+                                    ? entBg
+                                    : dept.slug === "ophthalmology"
+                                      ? eyeBg
+                                      : null;
+
+  if (heroImage) {
+    return (
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <img
+          src={heroImage}
+          alt=""
+          className="absolute inset-0 size-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/88 via-background/55 to-background/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background/35" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute -right-16 top-8 hidden size-80 place-items-center rounded-full border border-primary/10 bg-primary/5 text-primary/10 lg:grid">
+        <DepartmentIcon name={dept.icon} className="size-40" />
+      </div>
+      <div className="absolute right-24 bottom-10 hidden size-28 place-items-center rounded-3xl border border-violet-200/60 bg-white/45 text-violet-300 shadow-soft backdrop-blur-sm lg:grid">
+        <DepartmentIcon name={dept.icon} className="size-14" />
+      </div>
+      <div className="absolute left-8 top-10 size-24 rounded-full border border-primary/10 bg-white/35 blur-sm" />
+      <div className="absolute bottom-8 left-1/3 size-16 rounded-2xl border border-violet-200/50 bg-violet-100/20 rotate-12" />
     </div>
   );
 }
@@ -122,8 +219,9 @@ function DepartmentPage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero */}
-      <section className="bg-hero">
-        <div className="container-px mx-auto max-w-7xl py-16 lg:py-20 grid lg:grid-cols-12 gap-10 items-center">
+      <section className="relative overflow-hidden bg-hero">
+        <DepartmentHeroBackground dept={dept} />
+        <div className="container-px relative mx-auto max-w-7xl py-16 lg:py-20 grid lg:grid-cols-12 gap-10 items-center">
           <Reveal className="lg:col-span-8 space-y-5">
             <Link
               to="/services"
