@@ -82,7 +82,7 @@ function HomePage() {
               <div className="flex items-center gap-2 mb-1">
                 {[1,2,3,4,5].map(i => <Star key={i} className="size-3.5 fill-coral text-coral" style={{ color: "oklch(0.74 0.14 30)" }} />)}
               </div>
-              <div className="text-xs font-semibold">Treated by 1,000+ patients</div>
+              <div className="text-xs font-semibold">Treated 1,000+ patients</div>
             </div>
           </div>
         </div>
