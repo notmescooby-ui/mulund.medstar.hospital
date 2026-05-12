@@ -26,29 +26,29 @@ function HomePage() {
   return (
     <div className="overflow-x-hidden">
       {/* HERO */}
-      <section className="relative">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-hero" />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="relative container-px mx-auto max-w-7xl pt-10 pb-20 lg:pt-20 lg:pb-32 grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 space-y-7 animate-fade-up">
+          <div className="lg:col-span-6 space-y-7 animate-fade-up text-center sm:text-left">
             <div className="text-[11px] sm:text-[12px] font-semibold tracking-[0.24em] uppercase text-slate-950/90">
               Medstar Multispeciality Hospital and ICU
             </div>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-semibold text-primary shadow-card">
               <Sparkles className="size-3.5" /> {SITE.tagline}
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[1.05]">
               Compassionate care.<br />
               <span className="gradient-text">Modern medicine.</span>
             </h1>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed mx-auto sm:mx-0">
               Medstar Multispeciality Hospital and ICU brings together expert specialists, advanced technology and warm, patient-first care — right in the heart of Mulund West, Mumbai.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/contact" className="group inline-flex items-center gap-2 bg-primary-gradient text-primary-foreground px-6 py-3.5 rounded-2xl text-sm font-semibold shadow-soft hover:shadow-glow transition-all hover:-translate-y-0.5">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start">
+              <Link to="/contact" className="group inline-flex w-full sm:w-auto justify-center items-center gap-2 bg-primary-gradient text-primary-foreground px-6 py-3.5 rounded-2xl text-sm font-semibold shadow-soft hover:shadow-glow transition-all hover:-translate-y-0.5">
                 Book Appointment <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="/services" className="inline-flex items-center gap-2 glass px-6 py-3.5 rounded-2xl text-sm font-semibold text-foreground shadow-card hover:shadow-soft transition">
+              <Link to="/services" className="inline-flex w-full sm:w-auto justify-center items-center gap-2 glass px-6 py-3.5 rounded-2xl text-sm font-semibold text-foreground shadow-card hover:shadow-soft transition">
                 Explore Services <ChevronRight className="size-4" />
               </Link>
             </div>
@@ -66,10 +66,10 @@ function HomePage() {
           </div>
           <div className="lg:col-span-6 relative animate-scale-in">
             <div className="relative rounded-3xl overflow-hidden shadow-elegant">
-              <img src={heroImg} alt="Modern hospital lobby at Medstar Hospital" className="w-full h-[420px] sm:h-[520px] object-cover" width={1920} height={1280} />
+              <img src={heroImg} alt="Modern hospital lobby at Medstar Hospital" className="w-full h-[320px] sm:h-[420px] object-cover" width={1920} height={1280} />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-transparent" />
             </div>
-            <div className="absolute -left-4 sm:-left-8 bottom-8 glass rounded-2xl p-4 shadow-elegant w-56 animate-float">
+            <div className="hidden md:flex absolute -left-4 sm:-left-8 bottom-8 glass rounded-2xl p-4 shadow-elegant w-56 animate-float">
               <div className="flex items-center gap-3">
                 <div className="grid place-items-center size-11 rounded-xl bg-teal-gradient text-white"><HeartHandshake className="size-5" /></div>
                 <div>
@@ -78,7 +78,7 @@ function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="absolute -right-2 sm:-right-6 bottom-16 glass rounded-2xl p-4 shadow-elegant w-52" style={{ animation: "float 7s ease-in-out infinite", animationDelay: "1s" }}>
+            <div className="hidden md:block absolute -right-2 sm:-right-6 bottom-16 glass rounded-2xl p-4 shadow-elegant w-52" style={{ animation: "float 7s ease-in-out infinite", animationDelay: "1s" }}>
               <div className="flex items-center gap-2 mb-1">
                 {[1,2,3,4,5].map(i => <Star key={i} className="size-3.5 fill-coral text-coral" style={{ color: "oklch(0.74 0.14 30)" }} />)}
               </div>
@@ -185,7 +185,7 @@ function HomePage() {
         <div className="relative rounded-3xl overflow-hidden shadow-elegant">
           <img src={icuImg} alt="Modern ICU at Medstar" loading="lazy" className="absolute inset-0 w-full h-full object-cover" width={1600} height={1000} />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
-          <div className="relative grid lg:grid-cols-2 gap-8 p-8 sm:p-12 lg:p-16 text-primary-foreground">
+            <div className="relative grid lg:grid-cols-2 gap-8 p-6 sm:p-8 lg:p-16 text-primary-foreground">
             <Reveal>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold text-primary-foreground">
                 <Siren className="size-3.5" /> 24×7 Emergency & ICU
@@ -194,10 +194,10 @@ function HomePage() {
               <p className="mt-4 opacity-90 max-w-lg">Our ICU is staffed round-the-clock by trained intensivists with advanced ventilators, multi-parameter monitoring and a rapid response team.</p>
             </Reveal>
             <Reveal delay={120} className="flex flex-col justify-end gap-4">
-              <a href={SITE.phoneLink} className="inline-flex items-center justify-center gap-2 bg-white text-primary px-6 py-4 rounded-2xl font-bold text-lg shadow-elegant hover:scale-[1.02] transition-transform">
+              <a href={SITE.phoneLink} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-white text-primary px-6 py-4 rounded-2xl font-bold text-lg shadow-elegant hover:scale-[1.02] transition-transform">
                 <Siren className="size-5" /> Call Emergency: {SITE.phone}
               </a>
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 glass text-primary-foreground px-6 py-3 rounded-2xl font-semibold text-sm hover:bg-white/20 transition">
+              <Link to="/contact" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 glass text-primary-foreground px-6 py-3 rounded-2xl font-semibold text-sm hover:bg-white/20 transition">
                 Request a Callback
               </Link>
             </Reveal>
