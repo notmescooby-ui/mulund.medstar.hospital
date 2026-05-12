@@ -35,7 +35,7 @@ export function Header() {
       <div className="container-px mx-auto max-w-[95rem]">
 <div className={`rounded-2xl bg-white/80 border border-sky-100/65 backdrop-blur-xl shadow-soft transition-all duration-500 ${scrolled ? "px-3 sm:px-4 py-2" : "px-3 sm:px-4 py-3"}`}>
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <Link to="/" className="flex flex-1 min-w-0 items-center gap-3 group" aria-label="Medstar Multispeciality Hospital and ICU home">
+              <Link to="/" className="flex flex-1 min-w-0 items-start gap-3 group" aria-label="Medstar Multispeciality Hospital and ICU home">
                 <span className="grid place-items-center h-14 w-14 min-w-[3.5rem] rounded-full bg-sky-100 shadow-elegant ring-2 ring-sky-200/60 overflow-hidden transition-transform duration-300 group-hover:scale-105">
                   <img
                     src={medstarLogo}
@@ -43,13 +43,13 @@ export function Header() {
                     className="h-full w-full object-cover"
                   />
                 </span>
-                <span className="flex-1 min-w-0">
+                <span className="flex-1 min-w-0 flex flex-col items-start">
                   <span className="font-display font-bold text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.16em] text-slate-950 leading-tight break-words">
                     Medstar Multispeciality Hospital and ICU
                   </span>
                   <span className="text-[10px] sm:text-[11px] text-slate-600 mt-1 leading-tight">A Star in Health Care</span>
-              </span>
-            </Link>
+                </span>
+              </Link>
 
             <nav className="hidden lg:flex flex-1 items-center justify-center gap-3 min-w-0">
               {NAV.map((n) => {
