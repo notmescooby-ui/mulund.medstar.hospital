@@ -401,4 +401,5 @@ export const INSURERS = [
   "Health Insurance",
   "Care Health",
   "Heritage",
+  "MJPJAY & AB-PMJAY",
 ];

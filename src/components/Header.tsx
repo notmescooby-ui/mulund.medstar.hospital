@@ -45,10 +45,13 @@ export function Header() {
                   />
                 </span>
                 <span className="flex-1 min-w-0 flex flex-col items-start">
-                  <span className="font-display font-bold text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.16em] text-slate-950 leading-tight break-words">
-                    Medstar Multispeciality Hospital and ICU
+                  <span className="font-display font-bold text-[13px] sm:text-[14px] md:text-[15px] uppercase tracking-[0.16em] text-slate-951 leading-tight break-words">
+                    Medstar Multispeciality Hospital
                   </span>
-                  <span className="text-[10px] sm:text-[11px] text-slate-600 mt-1 leading-tight">A Star in Health Care</span>
+                  <span className="font-display font-bold text-[13px] sm:text-[14px] md:text-[15px] uppercase tracking-[0.16em] text-slate-951 leading-tight break-words">
+                    And ICU
+                  </span>
+                  <span className="text-[13px] sm:text-[14px] text-slate-700 mt-1 leading-tight">A Star in Health Care</span>
                 </span>
               </Link>
 
